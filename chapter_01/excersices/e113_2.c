@@ -1,6 +1,6 @@
 # include <stdio.h>
 
-/* Horizontal hist of word len */
+/* Vertical hist of word len */
 
 # define IN 1 
 # define OUT 0 
@@ -9,6 +9,7 @@
 int main()
 {
   int c, wl, state, i, j;
+  int maxcount;
   int wordlen[MAX_WORD];
 
   wl = 0;
@@ -37,10 +38,27 @@ int main()
   if (wl > 0)
     ++wordlen[wl];
   
+  maxcount = 0; 
   for (i = 0;i < MAX_WORD; ++i) {
-    for(j = 0; j <= wordlen[i]; ++j){
-      printf("|");
+    // define maximun count
+    if(wordlen[i] > maxcount)
+      maxcount = wordlen[i];
+  }
+  printf("max word size: %d\n", maxcount);
+  
+  for(i = maxcount; i >= 0; --i) {
+    for (j = 0;j < MAX_WORD; ++j) {
+      if(wordlen[j] > i) {
+        printf("_");
+      } else {
+        printf(" ");
+      }
     }
     printf("\n");
   }
+
+  for (i = 0;i < MAX_WORD; ++i) {
+    printf("_");
+  }
+  printf("\n");
 }
