@@ -12,9 +12,6 @@ int main ()
   maxlen = 0; 
 
   while ((ilen = lineget(line, LINELIMIT)) > 0) {
-    if (ilen >= LINELIMIT) {
-      char 
-    }
     if(ilen > maxlen) {
       maxlen = ilen;
       copy(maxline, line);
