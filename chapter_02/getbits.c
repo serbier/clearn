@@ -6,7 +6,7 @@ int main ()
 {
   unsigned x, out;
   x = 0177;
-  out = getbits(x, 3, 7);
+  out = getbits(x, 6, 3);
 
   printf("%d\t%d\n", x, out);
   return 0;
